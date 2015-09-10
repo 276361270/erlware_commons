@@ -8,7 +8,9 @@
 %%%-------------------------------------------------------------------
 -author("apple").
 -ifdef(debug).
--define(TRACE(Info), error_logger:info_msg("( Module is :~p,Line is :~p ) Message is  : ~p", [?MODULE, ?LINE, Info])).
+-define(TRACE(Info), error_logger:info_msg("( Module => ~p, Line=> ~p ) Message =>  ~p ~n", [?MODULE, ?LINE, Info])).
+-define(TRACE(Message,Info), error_logger:info_msg("( Module => ~p, Line=> ~p ) Message=> ~p Data => ~p ~n", [?MODULE, ?LINE, Message,Info])).
 -else.
 -define(TRACE(Info), ok).
+-define(TRACE(Message,Info), ok).
 -endif.
