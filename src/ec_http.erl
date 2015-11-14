@@ -22,7 +22,7 @@
 %% http post by httpc.
 %% @spec post_http(Url, Body::list()) -> response()
 request_http(Url, Method, Body) ->
-  post_http(Url, Method, Body, ?CONTENT_TYPE).
+  request_http(Url, Method, Body, ?CONTENT_TYPE).
 
 request_http(Url, Method, Body, ContentType) ->
   httpc:request(Method, {Url, [], ContentType, Body}, [{timeout, ?TIME_OUT}], []).
@@ -31,7 +31,7 @@ request_http(Url, Method, Body, ContentType) ->
 %% http post by ibrowse.
 %% @spec post_http(Url, Body::list()) -> response()
 request_ibrowse(Url, Method, Body) ->
-  post_ibrowse(Url, Method, Body, ?CONTENT_TYPE).
+  request_ibrowse(Url, Method, Body, ?CONTENT_TYPE).
 
 request_ibrowse(Url, Method, Body, ContentType) ->
   ibrowse:send_req(Url, [{"Content-Type", ContentType}], Method, Body, [], ?TIME_OUT).
